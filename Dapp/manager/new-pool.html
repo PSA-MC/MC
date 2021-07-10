@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Hadeer Emad">
+    <meta name="robots" content="index/follow">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+
+    <title>Meridian Capital</title>
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
+
+    <meta name="theme-color" content="#fafafa">
+    <meta name="msapplication-navbutton-color" content="#fafafa">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fafafa">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!--===============================
+    LOADER
+===================================-->
+
+<div class="pre-load">
+    <div class="lds-ripple">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+
+
+<!--===============================
+    NAV
+===================================-->
+
+<nav id="mainNavbar" class="navbar navbar-expand-md position-fixed flex-column">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarId" aria-controls="navbarId" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarId">
+            <a class="navbar-brand mx-0 mb-5" href="index.html" title="Meridian Capital">
+                <div class="d-flex align-items-center">
+                    <img src="../images/logo.png" alt="Meridian Capital">
+                    <div class="pl-3">
+                        <h1 class="font-2x m-0 text-dark">Meridian Capital</h1>
+                    </div>
+                </div>
+            </a>
+
+            <button disabled class="btn btn-primary btn-block mb-4">Create new pool</button>
+
+            <p class="mb-2 navbar-title position-relative font-small"><span>Open</span></p>
+            <ul class="navbar-nav pl-2 flex-column" id="openList">
+                <!--<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-external-link-alt mr-2"></i> KILT</a></li>-->
+            </ul>
+
+            <div class="position-absolute bottom border-top p-4">
+                <div class="row text-center pools-a">
+                    <div class="col-6"><a class="active" href="#" id="loadMainnetPools">Mainnet</a></div>
+                    <div class="col-6"><a href="#" id="loadTestnetPools">Testnet</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mirror"></div>
+
+    </div>
+</nav>
+
+
+
+<!--===============================
+    MAIN CONTENT
+===================================-->
+
+<section class="main-content py-4 px-3 px-lg-4">
+    <div class="container-fluid">
+        <form action="#" method="post" id="newPoolForm">
+            <div class="header d-lg-flex flex-row-reverse justify-content-between align-items-center mb-3">
+                <div>
+                    <button class="connectMM btn btn-primary btn-sm">Connect Wallet</button>
+                    <span class="text-primary pt-4 pt-sm-0 ml-3 text-right">Logged in as pool manager</span>
+                </div>
+                <div class="d-sm-flex align-items-center">
+                    <input type="text" placeholder="Enter New Pool Name" id="poolName" required class="font-3x form-name font-weight-bold">
+                </div>
+            </div>
+
+
+            <div class="row mt-4">
+                <div class="col-xl-8">
+
+                    <div class="card my-3">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold mb-3">Enter pool manager address
+                                <button type="button" class="ml-2" data-container="body" data-toggle="popover" data-placement="right" data-content="Enter the address of the manager of the pool, the one who will initiate the funds transfer to destination address">
+                                    <i class="fa fa-question-circle"></i>
+                                </button>
+                            </h5>
+
+                            <div class="d-flex align-items-center input-parent">
+                                <input type="text" class="form-control" required placeholder="0x0000..." id="poolManagerAddress">
+                                <div class="flex-grow-0 pl-2">
+                                    <i class="fa fa-check-circle text-lighter fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card my-3">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold mb-3">Enter destination address
+                                <button type="button" class="ml-2" data-container="body" data-toggle="popover" data-placement="right" data-content="Enter the address who shall receive all the collected funds.">
+                                    <i class="fa fa-question-circle"></i>
+                                </button>
+                            </h5>
+
+                            <div class="d-flex align-items-center input-parent">
+                                <input type="text" class="form-control" placeholder="0x0000..." id="destinationAddress">
+                                <div class="flex-grow-0 pl-2">
+                                    <i class="fa fa-check-circle text-lighter fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card my-3">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold mb-3">Enter token contract address
+                                <button type="button" class="ml-2" data-container="body" data-toggle="popover" data-placement="right" data-content="Enter the token contract address which will be given to the investors.">
+                                    <i class="fa fa-question-circle"></i>
+                                </button>
+                            </h5>
+
+                            <div class="d-flex align-items-center input-parent">
+                                <input type="text" class="form-control" placeholder="0x0000..." id="tokenContractAddress">
+                                <div class="flex-grow-0 pl-2">
+                                    <i class="fa fa-check-circle text-lighter fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card my-3">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold mb-3">Pool Volume</h5>
+
+                            <div class="d-flex align-items-center mb-2 input-parent">
+                                <div>Hard Cap (Max Pool Volume)</div>
+                                <div class="ml-2 flex-grow-1 position-relative">
+                                    <input type="number" min="0" class="form-control text-center mb-1" placeholder="Enter amount" id="hardCap">
+                                    <span class="selectedCurrency"></span>
+                                </div>
+                                <div class="flex-grow-0 pl-2">
+                                    <i class="fa fa-check-circle text-lighter fa-2x"></i>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center input-parent">
+                                <div>Soft Cap (Min Pool Volume)</div>
+                                <div class="ml-2 flex-grow-1 position-relative">
+                                    <input type="number" min="0" class="form-control text-center" placeholder="Enter amount" id="softCap">
+                                    <span class="selectedCurrency"></span>
+                                </div>
+                                <div class="flex-grow-0 pl-2">
+                                    <i class="fa fa-check-circle text-lighter fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card my-3">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold mb-3">Individual Caps</h5>
+
+                            <div class="d-flex align-items-center mb-2 input-parent">
+                                <div>Max individual contribution</div>
+                                <div class="ml-2 flex-grow-1 position-relative">
+                                    <input type="number" min="0" class="form-control text-center mb-1" placeholder="Enter amount" id="maxContribution">
+                                    <span class="selectedCurrency"></span>
+                                </div>
+                                <div class="flex-grow-0 pl-2">
+                                    <i class="fa fa-check-circle text-lighter fa-2x"></i>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center input-parent">
+                                <div>Min individual contribution</div>
+                                <div class="ml-2 flex-grow-1 position-relative">
+                                    <input type="number" min="0" class="form-control text-center" placeholder="Enter amount" id="minContribution">
+                                    <span class="selectedCurrency"></span>
+                                </div>
+                                <div class="flex-grow-0 pl-2">
+                                    <i class="fa fa-check-circle text-lighter fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="card my-3">
+                        <div class="card-body">
+
+                            <h6 class="font-weight-bold mb-3">Select network</h6>
+                            <label class="d-inline-block position-relative radio-holder">
+                                <input type="radio" name="network" value="Main Network" required>
+                                <span class="radio-select">Mainnet</span>
+                            </label>
+                            <label class="d-inline-block position-relative radio-holder">
+                                <input type="radio" name="network" value="Ropsten Test Network">
+                                <span class="radio-select">Testnet</span>
+                            </label>
+
+                            <h6 class="font-weight-bold my-3">Select contribution currency</h6>
+                            <label class="d-inline-block position-relative radio-holder">
+                                <input type="radio" name="currency" value="eth" required>
+                                <span class="radio-select">ETH</span>
+                            </label>
+                            <label class="d-inline-block position-relative radio-holder">
+                                <input type="radio" name="currency" value="usdt">
+                                <span class="radio-select">USDT</span>
+                            </label>
+                            <label class="d-inline-block position-relative radio-holder">
+                                <input type="radio" name="currency" value="usdc">
+                                <span class="radio-select">USDC</span>
+                            </label>
+
+                            <h6 class="font-weight-bold my-3">Select start & end dates</h6>
+                            <input type="text" class="form-control active-if-value mb-3" id="startDate" placeholder="Start Date - Time">
+                            <input type="text" class="form-control active-if-value" id="endDate" placeholder="End Date - Time">
+
+                            <h6 class="font-weight-bold my-3">Pool manager bonus tokens</h6>
+                            <div class="bonus-input">
+                                <input type="number" min="0" class="form-control active-if-value">
+                                <span>%</span>
+                            </div>
+
+                            <h6 class="font-weight-bold my-3">Additional settings</h6>
+                            <p class="m-0">Whitelisting addresses - Enter each address without spaces and , comma separated</p>
+                            <textarea class="form-control active-if-value mt-2" id="whitelistInput"></textarea>
+
+                            <!--<div class="d-flex justify-content-between align-items-center">
+                                <p class="m-0">Whitelisting addresses</p>
+                                <label class="switch-holder">
+                                    <input type="checkbox" name="whitelist">
+                                    <span class="check-switch position-relative">
+                                        <span class="switch-on">ON</span>
+                                        <span class="switch-off">OFF</span>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="m-0">Allow changing dates</p>
+                                <label class="switch-holder">
+                                    <input type="checkbox" name="changeDates">
+                                    <span class="check-switch position-relative">
+                                        <span class="switch-on">ON</span>
+                                        <span class="switch-off">OFF</span>
+                                    </span>
+                                </label>
+                            </div>-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary mr-3" disabled id="createPool">Create Now</button>
+                <a href="index.html" class="btn btn-outline-primary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+<!--===============================
+    SCRIPT
+===================================-->
+
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="../js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="application/javascript"></script>
+<script src="../js/web3.min.js"></script>
+<script src="../js/script-manager.js"></script>
+</body>
+
+</html>

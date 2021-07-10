@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Hadeer Emad">
+    <meta name="robots" content="index/follow">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+
+    <title>Meridian Capital</title>
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
+
+    <meta name="theme-color" content="#fafafa">
+    <meta name="msapplication-navbutton-color" content="#fafafa">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fafafa">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!--===============================
+    LOADER
+===================================-->
+
+<div class="pre-load">
+    <div class="lds-ripple">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+
+
+<!--===============================
+    NAV
+===================================-->
+
+<nav id="mainNavbar" class="navbar navbar-expand-md position-fixed flex-column">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarId" aria-controls="navbarId" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarId">
+            <a class="navbar-brand mx-0 mb-5" href="index.html" title="Meridian Capital">
+                <div class="d-flex align-items-center">
+                    <img src="../images/logo.png" alt="Meridian Capital">
+                    <div class="pl-3">
+                        <h1 class="font-2x m-0 text-dark">Meridian Capital</h1>
+                    </div>
+                </div>
+            </a>
+
+            <a href="new-pool.html" class="btn btn-primary btn-block mb-4">Create new pool</a>
+
+            <p class="mb-2 navbar-title position-relative font-small"><span>Open</span></p>
+            <ul class="navbar-nav pl-2 flex-column" id="openList">
+                <!--<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-external-link-alt mr-2"></i> KILT</a></li>-->
+            </ul>
+
+            <div class="position-absolute bottom border-top p-4">
+                <div class="row text-center pools-a">
+                    <div class="col-6"><a class="active" href="#" id="loadMainnetPools">Mainnet</a></div>
+                    <div class="col-6"><a href="#" id="loadTestnetPools">Testnet</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mirror"></div>
+
+    </div>
+</nav>
+
+
+
+<!--===============================
+    MAIN CONTENT
+===================================-->
+
+<section class="main-content py-4 px-3 px-lg-4 progress-page">
+    <div class="container-fluid">
+        <div class="header d-lg-flex justify-content-between align-items-center mb-3">
+            <div class="d-sm-flex align-items-center">
+                <div class="font-3x mr-3 font-weight-bold" id="projectName">---</div>
+                <div id="statusText" class="status-text"><i class="border-only"></i> Not deployed yet</div>
+            </div>
+            <div class="text-primary pt-4 pt-sm-0 text-right">Logged in as pool manager</div>
+        </div>
+
+
+        <div class="row mt-4">
+            <div class="col-xl-8">
+
+                <div class="card my-3">
+                    <div class="card-body">
+                        <h6 class="font-weight-bold mb-4">Creating contract...</h6>
+                        <p class="text-muted mb-2">Check transaction on</p>
+
+                        <a href="#" class="badge badge-light text-dark mr-2"><img src="../images/etherscan.png" alt="" class="mr-1"> Etherscan</a>
+                        <a href="#" class="badge badge-light text-dark"><img src="../images/mm.png" alt="" class="mr-1"> METAMASK</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    SCRIPT
+===================================-->
+
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/script-manager.js"></script>
+</body>
+
+</html>
